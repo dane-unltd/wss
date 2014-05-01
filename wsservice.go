@@ -1,4 +1,4 @@
-package wsservice
+package wss
 
 import (
 	"encoding/json"
@@ -53,8 +53,8 @@ func (s *Service) wsHandler(w http.ResponseWriter, r *http.Request) {
 	c.readPump(s)
 }
 
-func (s *Service) Listen(addr string) *Listener {
-	http.HandleFunc("/websocket/", s.wsHandler)
+func (s *Service) Listen(addr string, uri string) *Listener {
+	http.HandleFunc(uri, s.wsHandler)
 
 	newc := make(chan *Connection, 10)
 	s.newConn = newc

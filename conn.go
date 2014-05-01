@@ -1,4 +1,4 @@
-package wsservice
+package wss
 
 import (
 	"encoding/json"
