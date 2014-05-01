@@ -54,6 +54,7 @@ func (c *Connection) readPump(s *Service) {
 			}
 
 			b, err := ioutil.ReadAll(resp.Body)
+			log.Println("response: ", err, string(b))
 			if err != nil {
 				log.Println(err)
 				return
